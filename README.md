@@ -6,6 +6,7 @@ Test yourself on how much you can remember
 ## Usage
 ```
 $ git clone https://github.com/BlankGodd/memory_test
+$ cd memory_test
 ```
 ```
 $ python3 mem.py
