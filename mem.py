@@ -19,10 +19,15 @@ if __name__ == "__main__":
         colors you think you can remember at a go. The default is 10. After this,
         different colors are displayed to you after which you have to enter the 
         colors that were displayed according to the pattern they were displayed.
-        You are score up until you input the wrong color for a position.\n
-        To input you answer, input the first letter of the color except for color blue
-        e.g: B for Black, Bl for Blue, W for white, G for Green, Y for Yellow, R for Red
-        Your answers should be written in a single comma seperated string.\n
+        You are scored up until you input the wrong color for a position.
+        Every other correct color is invalid\n
+        To input you answer, type the first letter of the color except for color blue; type 'bl'
+        e.g: B for Black, Bl for Blue, W for white, G for Green, Y for Yellow, 
+        R for Red\n""")
+         
+    print("\t"+base.format(91) + "YOUR ANSWERS SHOULD BE TYPED IN A SINGLE COMMA SEPERATED STRING." + base.format(0))
+    
+    print("""
         You get one point per color
         You get two points if you can remember the numbers on the color too. 
         Yo get a prompt for the numbers and you can ignore if you want.\n
@@ -35,23 +40,17 @@ if __name__ == "__main__":
     try:
         num = int(input("> "))
     except:
-        pass
-    game = []
-    if num != 0:
-        game = play(num=num)
-    else:
-        game = play()
+        num = 10
+    game = play(num=num)
     answers = [colors[i] for i in game]
-    numbers = []
     bases = [base.format(j) for j in game]
     for i in bases:
-        sys.stdout.write(i)
-        x = round(random(),2)
-        numbers.append(x)
-        print(x)
-        time.sleep(0.3)
-        sys.stdout.flush()
+        print(i)
+        print('++++++++++++++++++++++++++++++++++++++++++++++')
+        time.sleep(0.5)
     print(base.format(0))
+    print('\n' * 100)
+    print('Your answers should be written in a single comma seperated string.')
     print("Enter your colors")
     user_input = input("> ")
     try:
@@ -63,30 +62,13 @@ if __name__ == "__main__":
         sys.exit(1)
     score = 0
     for i in range(num):
-        if sols(users[i]) == answers[i]:
-            score += 1  
-        else:
-            break
-    print(base.format(0))
-    print("Enter your numbers")
-    try:
-        user_numbers = input("> ")
-    except:
-        pass
-    if user_numbers:
-        print(user_numbers)
         try:
-            users = user_numbers.split(',')
-            users = [float(i) for i in users]
-        except:
-            print("InputError")
-            print(base.format(0))
-            sys.exit(1)
-        for i in range(num):
-            if users[i] == numbers[i]:
+            if (sols[users[i]] == answers[i]) or (users[i] == answers[i]):
                 score += 1  
             else:
                 break
+        except:
+            break
     print("You scored {} out of {}".format(score,num))
-    
+    print(answers)    
     
