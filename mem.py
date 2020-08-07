@@ -28,9 +28,7 @@ if __name__ == "__main__":
     print("\t"+base.format(91) + "YOUR ANSWERS SHOULD BE TYPED IN A SINGLE COMMA SEPERATED STRING." + base.format(0))
     
     print("""
-        You get one point per color
-        You get two points if you can remember the numbers on the color too. 
-        Yo get a prompt for the numbers and you can ignore if you want.\n
+        You get one point per color 
         All answers must be submitted in order!\n
         Ignore the following prompt to use a default value of 10 or enter your 
         value to display that number of colors. GoodLuck!
