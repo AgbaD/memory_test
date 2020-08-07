@@ -71,4 +71,4 @@ if __name__ == "__main__":
             break
     print("You scored {} out of {}".format(score,num))
     print(answers)    
-    
+    print()
